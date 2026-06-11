@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Confirma tu asistencia a la boda de [Nombres] — 20 de diciembre de 2026.">
+    <title>Confirmación - Boda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css?v=4.7">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+
+<body class="confirmacion-page">
+    <div class="language-picker">
+        <button onclick="changeLanguage('es')" aria-label="Cambiar a español">ES</button>
+        <button onclick="changeLanguage('en')" aria-label="Switch to English">EN</button>
+        <button onclick="changeLanguage('de')" aria-label="Auf Deutsch wechseln">DE</button>
+    </div>
+    <div class="form-card">
+        <h2 class="font-brittany" data-key="confirm_title">Confirmar Asistencia</h2>
+
+        <div class="aviso-fecha">
+            <span>⚠️</span>
+            <p data-key="aviso_fecha">Por motivos organizativos, confirmad antes del 4 de junio. ¡Gracias!</p>
+        </div>
+
+        <form id="weddingForm" name="weddingForm">
+            <div class="form-group">
+                <label data-key="form_name_label">Tu nombre completo</label>
+                <input type="text" name="Nombre" placeholder="Tu nombre completo" data-key="form_name_label" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label data-key="form_attendance_label">¿Asistirás?</label>
+                    <select name="Asistencia" id="guestAttendance" onchange="toggleAsistencia()">
+                        <option value="Si" data-key="form_yes">Sí, allí estaré 🎉</option>
+                        <option value="No" data-key="form_no">No podré asistir</option>
+                    </select>
+                </div>
+                <div class="form-group seccion-si">
+                    <label data-key="guest_age">Franja de edad</label>
+                    <select name="Edad">
+                        <option value="Adulto" data-key="age_adult">Adulto</option>
+                    </select>
+                </div>
+                <div class="form-group seccion-si">
+                    <label data-key="form_allergies_label">Tus intolerancias (Invitado principal)</label>
+                    <input type="text" name="Alergias_Principal" placeholder="Ej: Celíaco, Sin lactosa..."
+                        data-key="placeholder_alergias">
+                </div>
+
+
+                <div class="form-group seccion-si">
+                    <label data-key="form_guests_label">¿Acompañantes?</label>
+                    <div class="guest-counter">
+                        <button type="button" onclick="cambiarAcompañantes(-1)">−</button>
+                        <span id="guestDisplay">0</span>
+                        <input type="hidden" id="guestCount" name="Num_Acompañantes" value="0">
+                        <button type="button" onclick="cambiarAcompañantes(1)">+</button>
+                    </div>
+                </div>
+
+                <div id="additionalGuests"></div>
+                <input type="hidden" name="Acompañantes" id="hiddenGuests">
+
+                <div class="form-group seccion-si">
+                    <label data-key="form_cancion_label">¿Qué canción no puede faltar?</label>
+                    <input type="text" name="Cancion" data-key="placeholder_cancion"
+                        placeholder="Artista y título (opcional)">
+                </div>
+
+                <div class="form-row seccion-si">
+                    <div class="form-group">
+                        <label data-key="transporte_ida_label">Transporte de Ida</label>
+                        <select name="Bus_Ida" class="req-si">
+                            <option value="" disabled selected data-key="select_option">Selecciona...</option>
+                            <option value="Autobús" data-key="option_bus">Autobús</option>
+                            <option value="Coche" data-key="option_coche">Coche propio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-key="transporte_vuelta_label">Transporte de Vuelta</label>
+                        <select name="Bus_Vuelta" class="req-si">
+                            <option value="" disabled selected data-key="select_option">Selecciona...</option>
+                            <option value="Bus 22:30" data-key="option_2230">Bus 22:30h</option>
+                            <option value="Bus 01:00" data-key="option_0100">Bus 01:00"h</option>
+                            <option value="Coche" data-key="option_vuelta_coche">Coche propio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" data-key="confirm_btn">Confirmar Asistencia</button>
+                <button type="button" onclick="history.back();" class="submit-btn" data-key="btn_back">
+                    Volver
+                </button>
+        </form>
+    </div>
+
+    <script>
+        const translations = {
+            es: {
+                confirm_title: "Confirmar Asistencia",
+                aviso_fecha: "Por motivos organizativos, confirmad antes del 4 de junio. ¡Gracias!",
+                form_name_label: "Nombre completo",
+                placeholder_nombre_secreto: "Escribe tu nombre completo",
+                form_attendance_label: "¿Asistirás?",
+                form_yes: "Sí, allí estaré 🎉",
+                form_no: "No podré asistir",
+                form_guests_label: "¿Acompañantes?",
+                form_allergies_label: "Tus intolerancias (Invitado principal)",
+                form_cancion_label: "¿Qué canción no puede faltar?",
+                placeholder_cancion: "Artista y título (opcional)",
+                transporte_ida_label: "Transporte de Ida",
+                transporte_vuelta_label: "Transporte de Vuelta",
+                select_option: "Selecciona...",
+                option_bus: "Autobús",
+                option_coche: "Coche propio",
+                option_2230: "Bus 22:30h",
+                option_0100: "Bus  01:00",
+                option_vuelta_coche: "Coche propio",
+                confirm_btn: "Confirmar Asistencia",
+                guest_label: "Acompañante",
+                guest_name: "Nombre",
+                guest_age: "Franja de edad",
+                guest_allergy: "Intolerancias/Alergias",
+                age_adult: "Adulto",
+                age_teen: "13-17 adolescente",
+                age_child: "4-12 niño/a",
+                age_baby: "Bebé",
+                placeholder_nombre: "Nombre...",
+                placeholder_alergias: "Ej: Celíaco, Sin lactosa...",
+                btn_back: "Atrás"
+            },
+            en: {
+                confirm_title: "RSVP",
+                aviso_fecha: "For organisational reasons, please confirm before June 4th. Thank you!",
+                form_name_label: "Your full name",
+                form_attendance_label: "Will you attend?",
+                form_yes: "Yes, I'll be there 🎉",
+                form_no: "Sorry, I can't make it",
+                form_guests_label: "Guests?",
+                placeholder_alergias: "E.g: Celiac, Lactose intolerant...",
+                form_cancion_label: "What song must not be missing?",
+                placeholder_cancion: "Artist and title (optional)",
+                transporte_ida_label: "Outbound Transport",
+                transporte_vuelta_label: "Return Transport",
+                select_option: "Select...",
+                option_bus: "Bus",
+                option_coche: "Own car",
+                option_2230: "Bus 22:30h",
+                option_0100: "Bus  01:00",
+                option_vuelta_coche: "Own car",
+                confirm_btn: "Confirm Attendance",
+                guest_label: "Guest",
+                guest_name: "Name",
+                guest_age: "Age",
+                guest_allergy: "Intolerances/Allergies",
+                age_adult: "Adult",
+                age_teen: "13-17 teenager",
+                age_child: "4-12 child",
+                age_baby: "Baby",
+                placeholder_nombre: "Name...",
+                placeholder_alergias: "E.g: Celiac, Lactose intolerant...",
+                btn_back: "Back",
+                form_allergies_label: "Your intolerances (Main guest)",
+            },
+            de: {
+                confirm_title: "Bestätigung",
+                aviso_fecha: "Bitte bestätigt eure Teilnahme bis zum 4. Juni. Danke!",
+                form_name_label: "Euer vollständiger Name",
+                form_attendance_label: "Werdet ihr kommen?",
+                form_yes: "Ja, ich bin dabei 🎉",
+                form_no: "Nein, ich kann leider nicht",
+                form_guests_label: "Begleitpersonen?",
+                placeholder_alergias: "Z.B: Zöliakie, Laktoseintoleranz...",
+                form_cancion_label: "Welches Lied darf auf keinen Fall fehlen?",
+                placeholder_cancion: "Künstler und Titel (optional)",
+                transporte_ida_label: "Hinfahrt",
+                transporte_vuelta_label: "Rückfahrt",
+                select_option: "Auswählen...",
+                option_bus: "Bus",
+                option_coche: "Eigenes Auto",
+                option_2230: "Bus 22:30 Uhr",
+                option_0100: "Bus 01:00 Uhr",
+                option_vuelta_coche: "Eigenes Auto",
+                confirm_btn: "Teilnahme bestätigen",
+                guest_label: "Begleitperson",
+                guest_name: "Name",
+                guest_age: "Alter",
+                guest_allergy: "Unverträglichkeiten/Allergien",
+                age_adult: "Erwachsener",
+                age_teen: "13-17 Jugendliche/r",
+                age_child: "4-12 Kind",
+                age_baby: "Baby",
+                placeholder_nombre: "Name...",
+                placeholder_alergias: "Z.B: Zöliakie, Laktoseintoleranz...",
+                btn_back: "Zurück",
+                form_allergies_label: "Deine Unverträglichkeiten (Hauptgast)",
+            }
+        };
+
+        let currentLang = localStorage.getItem('selectedLanguage') || 'es';
+        const sheetName = 'FormularioBoda';
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            const t = translations[lang];
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (t[key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = t[key];
+                    } else {
+                        el.innerText = t[key];
+                    }
+                }
+            });
+        }
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzMC_QHs7SVe71gD7XdUiVlo-BPKCrKRW-IO7rBaa_Y5qAszvVMxX4GFbxPRDHGU3AQ/exec';
+        const form = document.getElementById('weddingForm');
+
+        async function enviarAGoogleAppsScript(url, bodyParams) {
+            const optsCors = {
+                method: 'POST',
+                body: bodyParams,
+                redirect: 'follow',
+                credentials: 'omit',
+                mode: 'cors'
+            };
+            const optsNoCors = {
+                method: 'POST',
+                body: bodyParams,
+                mode: 'no-cors',
+                credentials: 'omit'
+            };
+            try {
+                const response = await fetch(url, optsCors);
+                const raw = await response.text();
+                let json = null;
+                try {
+                    json = raw ? JSON.parse(raw) : null;
+                } catch (_) { /* no JSON */ }
+
+                if (json && json.result === 'error') {
+                    return { ok: false, mensaje: json.error || 'Error del servidor' };
+                }
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status);
+                }
+                return { ok: true, via: 'cors' };
+            } catch (err) {
+                console.warn('[RSVP] fetch:', err);
+                try {
+                    await fetch(url, optsNoCors);
+                    return { ok: true, via: 'nocors' };
+                } catch (err2) {
+                    console.error('[RSVP] no-cors:', err2);
+                    return { ok: false, mensaje: (err2 && err2.message) || (err && err.message) || String(err) };
+                }
+            }
+        }
+
+        function toggleAsistencia() {
+            const asiste = document.getElementById('guestAttendance').value === 'Si';
+            const secciones = document.querySelectorAll('.seccion-si');
+            const inputs = document.querySelectorAll('.req-si');
+
+            secciones.forEach(s => s.classList.toggle('campo-deshabilitado', !asiste));
+            inputs.forEach(i => { i.required = asiste; });
+
+            if (!asiste) {
+                document.getElementById('additionalGuests').innerHTML = '';
+                document.getElementById('guestCount').value = 0;
+                document.getElementById('hiddenGuests').value = '';
+                document.querySelector('input[name="Alergias_Principal"]').value = '';
+                const cancionIn = document.querySelector('input[name="Cancion"]');
+                if (cancionIn) cancionIn.value = '';
+                const participacionIn = document.querySelector('textarea[name="Participacion"]');
+                if (participacionIn) participacionIn.value = '';
+                document.querySelector('select[name="Bus_Ida"]').selectedIndex = 0;
+                document.querySelector('select[name="Bus_Vuelta"]').selectedIndex = 0;
+            }
+        }
+
+        document.getElementById('guestCount').addEventListener('change', function () {
+            const container = document.getElementById('additionalGuests');
+            container.innerHTML = '';
+            const t = translations[currentLang];
+            for (let i = 1; i <= this.value; i++) {
+                const div = document.createElement('div');
+                div.className = 'guest-entry';
+                div.innerHTML = `
+                    <h4>${t.guest_label} ${i}</h4>
+                    <div class="form-group-inner">
+                        <label>${t.guest_name}</label>
+                        <input type="text" class="g-nombre" placeholder="${t.placeholder_nombre}" required>
+                    </div>
+                    <div class="form-group-inner">
+                        <label>${t.guest_age}</label>
+                        <select class="g-edad">
+                            <option value="Adulto">${t.age_adult}</option>
+                            <option value="13/18">${t.age_teen}</option>
+                            <option value="4/12">${t.age_child}</option>
+                            <option value="Bebe">${t.age_baby}</option>
+                        </select>
+                    </div>
+                    <div class="form-group-inner">
+                        <label>${t.guest_allergy}</label>
+                      <input type="text" class="g-alergia" placeholder="${t.placeholder_alergias}">
+                    </div>
+                `;
+                container.appendChild(div);
+            }
+        });
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+
+            const btn = document.querySelector('.submit-btn[type="submit"]');
+            const t = translations[currentLang];
+            const sendingText = currentLang === 'en' ? 'Sending...' : currentLang === 'de' ? 'Wird gesendet...' : 'Enviando...';
+            btn.disabled = true;
+            btn.innerText = sendingText;
+
+            let acompañantesFinal = "";
+            const entries = document.querySelectorAll('.guest-entry');
+            const parts = [];
+            entries.forEach((entry) => {
+                const nombreEl = entry.querySelector('.g-nombre');
+                const edadEl = entry.querySelector('.g-edad');
+                const alergiaEl = entry.querySelector('.g-alergia');
+                if (!nombreEl || !edadEl) return;
+                const nombre = nombreEl.value;
+                const edad = edadEl.value;
+                const alergia = (alergiaEl && alergiaEl.value.trim() !== "") ? alergiaEl.value.trim() : "Ninguna";
+                parts.push(`${nombre} (${edad}) - Alergias: ${alergia}`);
+            });
+            acompañantesFinal = parts.join(' | ');
+            document.getElementById('hiddenGuests').value = acompañantesFinal;
+
+            const body = new URLSearchParams(new FormData(form));
+            try {
+                const res = await enviarAGoogleAppsScript(scriptURL, body);
+                if (!res.ok) {
+                    let detalle = res.mensaje || '';
+                    if (/getRange|getSheetByName|Cannot read properties of null/i.test(detalle)) {
+                        detalle += currentLang === 'en'
+                            ? '\n\n(Check in Apps Script: spreadsheet ID, and that getSheetByName matches the tab name exactly, e.g. «Formulario Boda».)'
+                            : currentLang === 'de'
+                                ? '\n\n(Apps Script: Tabellen-ID prüfen; getSheetByName muss exakt dem Tab-Blatt-Namen entsprechen, z. B. «Formulario Boda».)'
+                                : '\n\n(Revisa en Apps Script: ID del spreadsheet, y que getSheetByName sea EXACTAMENTE el nombre de la pestaña, p. ej. «Formulario Boda», sin espacios de más.)';
+                    }
+                    alert((currentLang === 'en' ? 'Error: ' : currentLang === 'de' ? 'Fehler: ' : 'Error: ') + detalle);
+                    btn.disabled = false;
+                    btn.innerText = t.confirm_btn;
+                    return;
+                }
+                const okBase = currentLang === 'en' ? 'Thank you! RSVP sent successfully.' : currentLang === 'de' ? 'Danke! Teilnahme bestätigt.' : '¡Gracias! Confirmación enviada con éxito.';
+                const extraNocors = currentLang === 'en'
+                    ? '\n\nIf the row does not appear in the sheet in a minute, try again or contact us.'
+                    : currentLang === 'de'
+                        ? '\n\nWenn der Eintrag nicht erscheint, versucht es erneut oder schreibt uns.'
+                        : '\n\nSi en un minuto no ves la fila en la hoja o el correo, inténtalo otra vez o escríbenos.';
+                alert(res.via === 'nocors' ? okBase + extraNocors : okBase);
+                window.location.href = 'index.html';
+            } catch (err) {
+                console.error(err);
+                let fail = currentLang === 'en' ? 'Could not send. Please try again.' : currentLang === 'de' ? 'Senden fehlgeschlagen. Bitte erneut versuchen.' : 'Error al enviar. Inténtalo de nuevo.';
+                if (err && err.message) {
+                    fail += '\n\n(' + err.message + ')';
+                }
+                if (window.location.protocol === 'file:') {
+                    fail += '\n\n' + (currentLang === 'en' ? 'If you opened this page as a file (file://), use Live Server or upload the site; browsers often block requests to Google.' : currentLang === 'de' ? 'Wenn du die Seite als Datei (file://) öffnest: nutze einen lokalen Server oder Hosting.' : 'Si abres la página como archivo (file://), usa Live Server o súbela a un hosting; el navegador suele bloquear el envío a Google.');
+                }
+                alert(fail);
+                btn.disabled = false;
+                btn.innerText = t.confirm_btn;
+            }
+        });
+
+        window.onload = () => {
+            changeLanguage(currentLang);
+            toggleAsistencia();
+        };
+        function cambiarAcompañantes(delta) {
+            const input = document.getElementById('guestCount');
+            const display = document.getElementById('guestDisplay');
+            let val = parseInt(input.value) + delta;
+            val = Math.max(0, Math.min(10, val));
+            input.value = val;
+            display.textContent = val;
+            input.dispatchEvent(new Event('change'));
+        }
+    </script>
+</body>
+
+</html>

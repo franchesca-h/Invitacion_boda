@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web de boda de Novio & Novia · 20 diciembre 2026">
+    <meta property="og:title" content="Boda de Novio & Novia · 20 diciembre 2026">
+    <meta property="og:description" content="Confirma tu asistencia a nuestra boda en España">
+    <meta property="og:image" content="https://tu-demo.cheky.dev/images/Mano_novios.png">
+    <meta property="og:url" content="https://tu-demo.cheky.dev">
+    <meta property="og:type" content="website">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Boda de Novia & Novio - Demo Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4.7">
+</head>
+
+<body>
+
+    <div class="language-picker">
+        <button onclick="changeLanguage('es')" aria-label="Cambiar a español">ES</button>
+        <button onclick="changeLanguage('en')" aria-label="Switch to English">EN</button>
+        <button onclick="changeLanguage('de')" aria-label="Auf Deutsch wechseln">DE</button>
+    </div>
+
+    <section class="hero-split">
+        <div class="hero-container">
+            <div class="hero-video-wrapper">
+                <video autoplay muted loop playsinline class="video-frame">
+                    <source src="videos/Pareja.mp4" type="video/webm">
+                </video>
+                <div class="video-overlay-content">
+                    <h1 class="hero-names">Novio & Novia</h1>
+                    <div class="date-footer">
+                        <p class="location" data-key="hero_location">20/12/2026 ·España</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="anuncio-section">
+        <div class="anuncio-frame-wrapper">
+            <div class="anuncio-especial">
+                <div class="anuncio-overlay">
+                    <h2 class="typewriter-text" data-key="announcement_intro">
+                        El destino tenía planes bonitos para nosotros...
+                    </h2>
+                    <div id="big-reveal" class="reveal-container reveal-on-scroll">
+                        <p class="font-brittany big-title" data-key="announcement">¡Nos casamos!</p>
+                        <img src="images/iconoEnlace.png" alt="Anillos" class="rings-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="donde-section">
+        <div class="donde-frame-wrapper ">
+            <div class="donde-overlay">
+                <h2 class="font-brittany title-donde" data-key="title_donde">Donde</h2>
+                <p class="donde-text" data-key="ceremony_details">
+                    ¡Daremos el SÍ QUIERO en la Basílica el próximo 20/12/2026 y no puedes faltar!
+                </p>
+
+                <p class="donde-text1" data-key="ceremony_donde">El convite lo celebraremos en la finca Jardines del
+                    Canal . </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="module agenda">
+        <div class="agenda-wrapper">
+            <h2 class="font-brittany" data-key="agenda_title">Agenda del día</h2>
+            <div class="agenda-grid">
+                <div class="agenda-item">
+                    <p class="agenda-time">12:40h</p>
+                    <p class="agenda-desc" data-key="agenda_item_1">Llegada a la iglesia</p>
+                </div>
+                <div class="agenda-item">
+                    <p class="agenda-time">13:00h</p>
+                    <p class="agenda-desc" data-key="agenda_item_2">Ceremonia religiosa · Basílica de San Lorenzo</p>
+                </div>
+                <div class="agenda-item">
+                    <p class="agenda-time">14:30h</p>
+                    <p class="agenda-desc" data-key="agenda_item_3">Autobús</p>
+                </div>
+                <div class="agenda-item">
+                    <p class="agenda-time">15:00h</p>
+                    <p class="agenda-desc" data-key="agenda_item_4">Aperitivo</p>
+                </div>
+                <div class="agenda-item">
+                    <p class="agenda-time">16:30h</p>
+                    <p class="agenda-desc" data-key="agenda_item_5">Banquete</p>
+                </div>
+                <div class="agenda-item">
+                    <p class="agenda-time">22:30h</p>
+                    <p class="agenda-desc" data-key="agenda_item_6">Autobús de vuelta</p>
+                </div>
+                <div class="agenda-item">
+                    <p class="agenda-time">01:00h</p>
+                    <p class="agenda-desc" data-key="agenda_item_7">Autobús de vuelta</p>
+                </div>
+
+                <h2 class="font-brittany" data-key="locations_title">Ubicaciones importantes</h2>
+                <div class="ubicacion-card">
+                    <a href="#" target="_blank" class="map-btn" data-key="map_link" id="btn-mapa">
+                        <span data-key="view_location">Ver aquí</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="countdown-section">
+        <h2 class="countdown-title" data-key="countdown_title">CUENTA ATRÁS PARA EL GRAN DÍA</h2>
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span id="days">00</span>
+                <p data-key="days_label">DÍAS</p>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">00</span>
+                <p data-key="hours_label">HORAS</p>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">00</span>
+                <p data-key="minutes_label">MIN</p>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds" class="seconds-red">00</span>
+                <p data-key="seconds_label">SEG</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="anuncio-section">
+        <div class="anuncio-frame-wrapper card-unificada detalles-bg">
+            <div class="anuncio-overlay">
+                <h2 class="font-brittany title-detalles" data-key="regalo_title">Detalles</h2>
+                <p class="text-main text-regalo-intro" data-key="regalo_intro">Tu presencia es el único regalo
+                    imprescindible.</p>
+                <p class="text-detalles text-regalo-p2" data-key="detalles_p2">Pero si quieres contribuir...</p>
+                <p class="text-detalles text-regalo-p3" data-key="detalles_p3">"estamos reuniendo fondos para todo lo
+                    demás"</p>
+
+                <button class="rsvp-button" onclick="abrirModalIban()" data-key="btn_money"
+                    style="margin-top: 20px; border: none; cursor: pointer;">
+                    CONTRIBUIR AQUÍ
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gracias-section">
+        <div class="gracias-frame-wrapper">
+            <video autoplay muted loop playsinline class="video-frame">
+                <source src="videos/Mesa_boda.mp4" type="video/mp4">
+            </video>
+            <div class="gracias-overlay">
+                <h2 class="font-brittany title-gracias title-thanks" data-key="thanks_msg">
+                    ¡Gracias por ser parte de nuestra historia!
+                </h2>
+                <a href="confirmacion.html" class="rsvp-button" data-key="go_to_form">Confirmar Asistencia</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="anuncio-section secret-section">
+        <div class="secret-container-full secreto-bg">
+            <div class="secret-content-fluid">
+                <div class="secret-header">
+                    <h2 class="font-brittany title-main-secret" data-key="secret_title">Momentos Especiales</h2>
+                </div>
+                <div class="warning-box">
+                    <span class="warning-icon">⚠️</span>
+                    <p data-key="anuncio_privacidad">Este apartado es clasificado / confidencial</p>
+                </div>
+                <form class="secret-form" id="form-momentos">
+                    <div class="form-group">
+                        <label data-key="form_name_label">Tu nombre completo</label>
+                        <input type="text" name="nombre_secreto" id="nombre" required
+                            placeholder="Escribe tu nombre completo" data-key="placeholder_nombre_secreto">
+                    </div>
+                    <div class="form-group">
+                        <label data-key="label_email">Tu Email</label>
+                        <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-key="label_juego">¿Tienes algo preparado?</label>
+                        <textarea name="juego" id="juego" data-key="placeholder_juego"
+                            placeholder="Cuéntanos lo que tienes: un discurso, un vídeo, un juego..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label data-key="label_cancion">CANCIÓN PARA VUESTRO MOMENTO</label>
+                        <input type="text" name="cancion" id="cancion" data-key="placeholder_artista"
+                            placeholder="Artista y Título">
+                    </div>
+                    <div class="form-group">
+                        <label data-key="label_regalo_persona">¿ENTREGARÉIS UN REGALO EN PERSONA?</label>
+                        <select name="regalo_persona" id="regalo">
+                            <option value="no" data-key="form_gift_no">No</option>
+                            <option value="si" data-key="form_gift">Si</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="rsvp-button secret-btn" data-key="send_btn">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal-iban" class="modal-iban-container">
+        <div class="detalles-card">
+            <button class="modal-iban-close" onclick="cerrarModal()">&times;</button>
+            <h3 class="detalles-title" data-key="modal_title">Transferencia</h3>
+
+            <div class="detalles-info-block">
+                <p><strong data-key="modal_label_titular">Titular de la cuenta:</strong></p>
+                <p>Novia <br>o Novio</p>
+            </div>
+
+            <div class="iban-display">
+                <span class="iban-label" data-key="iban_label">IBAN</span>
+                <span class="iban-numero"
+                    style="font-size: 1.1rem; letter-spacing: 0.5px;">**52556454525654565456455</span>
+            </div>
+
+            <div class="modal-iban-warning">
+                <p data-key="modal_warning_text">⚠ Si algún botón no funciona, es muy probable que tengas las ventanas
+                    emergentes bloqueadas en tu navegador.</p>
+                <p style="margin-top: 8px; text-align: center;">
+                    <span data-key="modal_how_to">Cómo solucionarlo:</span>
+                    <a href="https://support.apple.com/es-es/102524" target="_blank" rel="noopener">iPhone</a> ·
+                    <a href="https://support.google.com/chrome/answer/95472?hl=es&co=GENIE.Platform%3DAndroid"
+                        target="_blank" rel="noopener">Android</a>
+                </p>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--color-texto-gris); line-height: 1.4; margin: 0;"
+                data-key="modal_footer">
+                Cualquier problema, no dudéis en contactarnos y os ayudaremos encantados. ✨
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 1. Cuenta atrás
+        const targetDate = new Date("December 20, 2026 12:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }, 1000);
+
+        // 2. Diccionario de traducciones I18n
+        const translations = {
+            es: {
+                hero_location: "20/12/2026 ·  España",
+                announcement_intro: "El destino tenía planes bonitos para nosotros...",
+                announcement: "¡Nos casamos!",
+                where_title: "¿Dónde?",
+                ceremony_details: "¡Daremos el SÍ QUIERO en la Basílica 20/12/2026 y no puedes faltar!",
+                party_details: "El convite lo celebraremos en la finca Jardines ",
+                agenda_title: "Agenda del día",
+                agenda_item_1: "Llegada a la iglesia",
+                agenda_item_2: "Ceremonia · Basílica ",
+                agenda_item_3: "Autobús",
+                agenda_item_4: "Aperitivo",
+                agenda_item_5: "Banquete",
+                agenda_item_6: "Autobús de vuelta",
+                agenda_item_7: "Autobús de vuelta",
+                locations_title: "Ubicaciones importantes",
+                view_location: "Ver aquí",
+                map_link: "https://cheky.dev/",
+                countdown_title: "CUENTA ATRÁS PARA EL GRAN DÍA",
+                days_label: "DÍAS",
+                hours_label: "H",
+                minutes_label: "MIN",
+                seconds_label: "SEG",
+                go_to_form: "Confirmar Asistencia",
+                regalo_title: "Detalles",
+                regalo_intro: "Tu presencia es el único regalo imprescindible.",
+                detalles_p2: "Pero si quieres contribuir, amor ya tenemos...",
+                detalles_p3: "estamos reuniendo fondos para todo lo demás",
+                btn_money: "CONTRIBUIR AQUÍ",
+                iban_label: "IBAN",
+                secret_title: "Momentos Especiales",
+                anuncio_privacidad: " Este apartado es clasificado. Los novios no tienen acceso.",
+                form_name_label: "Tu nombre completo",
+                placeholder_nombre_secreto: "Escribe tu nombre completo",
+                label_email: "Tu Email",
+                placeholder_email: "ejemplo@email.com",
+                placeholder_artista: "Artista y Título...",
+                placeholder_juego: "cuéntanos: un discurso, un vídeo en el proyector, un regalo en persona, un juego, hora loca.. lo que se te ocurra!",
+                label_cancion: "CANCIÓN PARA VUESTRO MOMENTO",
+                label_juego: "¿TENÉIS ALGO PREPARADO?",
+                label_regalo_persona: "¿ENTREGARÉIS UN REGALO EN PERSONA?",
+                form_gift_no: "No",
+                form_gift: "Si",
+                send_btn: "Enviar",
+                thanks_msg: "¡Gracias por ser parte de nuestra historia!",
+                modal_title: "Transferencia",
+                modal_label_titular: "Titular de la cuenta:",
+                modal_warning_text: "⚠ Si algún botón no funciona, es muy probable que tengas las ventanas emergentes bloqueadas en tu navegador.",
+                modal_how_to: "Cómo solucionarlo:",
+                modal_footer: "Cualquier problema, no dudéis en contactarnos y os ayudaremos encantados. ✨"
+            },
+            en: {
+                hero_location: "12/20/2026 ·  Spain",
+                announcement_intro: "Fate had beautiful plans for us...",
+                announcement: "We're getting married!",
+                where_title: "Where?",
+                ceremony_details: "We will say 'I DO' at the Basilica  12/20/2026 and you can't miss it!",
+                party_details: "The celebration will be held at the Jardines",
+                agenda_title: "Wedding Schedule",
+                agenda_item_1: "Arrival at the church",
+                agenda_item_2: "Ceremony · Basilica ",
+                agenda_item_3: "Shuttle Bus",
+                agenda_item_4: "Cocktail hour",
+                agenda_item_5: "Wedding feast",
+                agenda_item_6: "Return bus",
+                agenda_item_7: "Return bus",
+                locations_title: "Important Locations",
+                view_location: "View here",
+                map_link: "https://cheky.dev/",
+                countdown_title: "COUNTDOWN TO THE BIG DAY",
+                days_label: "DAYS",
+                hours_label: "H",
+                minutes_label: "MIN",
+                seconds_label: "SECOND",
+                go_to_form: "Confirm Attendance",
+                regalo_title: "Details",
+                regalo_intro: "Your presence is the only essential gift.",
+                detalles_p2: "But if you wish to contribute, we already have plenty of love...",
+                detalles_p3: "we are raising funds for everything else",
+                btn_money: "CONTRIBUTE HERE",
+                iban_label: "IBAN",
+                secret_title: "Special Moments",
+                anuncio_privacidad: "This section is classified. The couple has no access.",
+                form_name_label: "Your full name",
+                placeholder_nombre_secreto: "Write your full name",
+                label_email: " Your email",
+                placeholder_email: "example@email.com",
+                placeholder_artista: "Artist and Title...",
+                placeholder_juego: "Tell us what you have: a speech, a video, a personal gift, a game, crazy hour... Whatever comes to mind!",
+                label_cancion: "SONG FOR YOUR MOMENT",
+                label_juego: "HAVE YOU PREPARED SOMETHING?",
+                label_regalo_persona: "GIVING A GIFT IN PERSON?",
+                form_gift_no: "No",
+                form_gift: "Yes",
+                send_btn: "Send",
+                thanks_msg: "Thanks for being part of our story!",
+                modal_title: "Bank Transfer",
+                modal_label_titular: "Account Holder:",
+                modal_warning_text: "⚠ If any button doesn't work, it is very likely that you have pop-ups blocked in your browser.",
+                modal_how_to: "How to fix it:",
+                modal_footer: "Any issues, please do not hesitate to contact us, we will be happy to help. ✨"
+            },
+            de: {
+                hero_location: "20.12.2026 · Spanien",
+                announcement_intro: "Das Schicksal hatte schöne Pläne für uns...",
+                announcement: "Wir heiraten!",
+                where_title: "Wo?",
+                ceremony_details: "Wir geben uns am 20.12.2026 in der Basilika !",
+                party_details: "Die Feier findet auf dem Anwesen Jardines ",
+                agenda_title: "Tagesablauf",
+                agenda_item_1: "Ankunft an der Kirche",
+                agenda_item_2: "Zeremonie · Basilika ",
+                agenda_item_3: "Shuttle-Bus",
+                agenda_item_4: "Sektempfang & Aperitif",
+                agenda_item_5: "Hochzeitsessen",
+                agenda_item_6: "Rückfahrt-Bus",
+                agenda_item_7: "Rückfahrt-Bus",
+                locations_title: "Wichtige Orte",
+                view_location: "Standort anzeigen",
+                map_link: "https://cheky.dev/",
+                countdown_title: "COUNTDOWN ZUM GROSSEN TAG",
+                days_label: "TAGE",
+                hours_label: "S",
+                minutes_label: "MIN",
+                seconds_label: "SEK",
+                go_to_form: "Teilnahme bestätigen",
+                regalo_title: "Details",
+                regalo_intro: "Deine Anwesenheit ist unser wichtigstes Geschenk.",
+                detalles_p2: "Wenn ihr dennoch etwas beitragen möchtet – Liebe haben wir schon genug...",
+                detalles_p3: "wir sammeln für alles andere",
+                btn_money: "HIER BEITRAGEN",
+                iban_label: "IBAN",
+                secret_title: "Besondere Momente",
+                anuncio_privacidad: "Dieser Bereich ist geheim. Das Brautpaar hat keinen Zugriff.",
+                form_name_label: "Vollständiger Name",
+                placeholder_nombre_secreto: "Deinen vollständigen Namen eingeben",
+                label_email: "Deine E-Mail",
+                placeholder_email: "beispiel@email.com",
+                placeholder_artista: "Interpret und Titel...",
+                placeholder_juego: "Erzählen Sie uns, was Sie haben: eine Rede, ein Video, ein persönliches Geschenk, ein Spiel, eine verrückte Stunde ... Was auch immer Ihnen in den Sinn kommt!",
+                label_cancion: "LIED FÜR EUREN MOMENT",
+                label_juego: "HABT IHR ETWAS VORBEREITET?",
+                label_regalo_persona: "PERSÖNLICHES GESCHENK ÜBERGEBEN?",
+                form_gift_no: "Nein",
+                form_gift: "Ja",
+                send_btn: "Absenden",
+                thanks_msg: "Danke, dass du Teil unserer Geschichte bist!",
+                modal_title: "Überweisung",
+                modal_label_titular: "Kontoinhaber:",
+                modal_warning_text: "⚠ Wenn eine Schaltfläche nicht funktioniert, haben Sie höchstwahrscheinlich Pop-ups in Ihrem Browser blockiert.",
+                modal_how_to: "Wie man es behebt:",
+                modal_footer: "Bei Problemen zögern Sie bitte nicht, uns zu kontaktieren, wir helfen Ihnen gerne weiter. ✨"
+            }
+        };
+
+        // 3. Controlador de Idioma Dinámico
+        function changeLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (!t[key]) return;
+
+                if (element.tagName === 'A' && key === 'map_link') {
+                    element.href = t[key];
+                }
+                else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = t[key];
+                }
+                else {
+                    element.innerText = t[key];
+                }
+            });
+
+            localStorage.setItem('selectedLanguage', lang);
+
+            const emailInput = document.getElementById('email');
+            if (emailInput && t.placeholder_email) {
+                emailInput.placeholder = t.placeholder_email;
+            }
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'es';
+            changeLanguage(savedLang);
+        };
+
+        // 4. Animación on Scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const targetReveal = document.querySelector('.reveal-on-scroll');
+            if (targetReveal) {
+                observer.observe(targetReveal);
+            }
+        });
+
+        // 5. Formulario Momentos Especiales - DEMO (no envía datos reales)
+        const formMomentos = document.getElementById('form-momentos');
+        if (formMomentos) formMomentos.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const lang = localStorage.getItem('selectedLanguage') || 'es';
+            const t = translations[lang] || translations.es;
+            const btn = formMomentos.querySelector('.secret-btn[type="submit"]');
+            const sending = lang === 'en' ? 'Sending...' : lang === 'de' ? 'Wird gesendet...' : 'Enviando...';
+
+            btn.disabled = true;
+            btn.innerText = sending;
+
+            // DEMO: simula envío con delay
+            await new Promise(resolve => setTimeout(resolve, 1200));
+
+            const okMsg = lang === 'en'
+                ? 'Sent! Thanks for the surprise ❤️'
+                : lang === 'de'
+                    ? 'Gesendet! Danke für die Überraschung ❤️'
+                    : '¡Enviado con éxito! Gracias por la sorpresa ❤️';
+
+            alert(okMsg);
+            formMomentos.reset();
+            btn.disabled = false;
+            btn.innerText = t.send_btn;
+        });
+
+        // 6. Control de reproducción de Vídeos Móviles
+        document.addEventListener('DOMContentLoaded', function () {
+            var videos = document.querySelectorAll('video');
+            videos.forEach(function (video) {
+                video.play().catch(function (error) {
+                    console.log("Autoplay controlado preventivamente.");
+                });
+            });
+        });
+
+        // 7. Funciones del Modal Flotante
+        function abrirModalIban() {
+            const modal = document.getElementById('modal-iban');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modal-iban');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('click', function (event) {
+            const modal = document.getElementById('modal-iban');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
